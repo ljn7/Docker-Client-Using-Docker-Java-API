@@ -1,0 +1,18 @@
+ai/openfabric/api/repository/WorkerRepository.java
+ ai.openfabric.api.repository.WorkerRepository
+ai/openfabric/api/config/ElideConfig.java
+ ai.openfabric.api.config.ElideConfig
+ai/openfabric/api/controller/WorkerController.java
+ ai.openfabric.api.controller.WorkerController
+ai/openfabric/api/model/Worker.java
+ ai.openfabric.api.model.Worker
+ai/openfabric/api/config/CorsConfig.java
+ ai.openfabric.api.config.CorsConfig
+ai/openfabric/api/config/WebSecurityConfig.java
+ ai.openfabric.api.config.WebSecurityConfig
+ai/openfabric/api/Application.java
+ ai.openfabric.api.Application
+ai/openfabric/api/model/IDGenerator.java
+ ai.openfabric.api.model.IDGenerator
+ai/openfabric/api/config/SwaggerConfig.java
+ ai.openfabric.api.config.SwaggerConfig

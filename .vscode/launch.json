@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<openfabric-api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ai.openfabric.api.Application",
+            "projectName": "openfabric-api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

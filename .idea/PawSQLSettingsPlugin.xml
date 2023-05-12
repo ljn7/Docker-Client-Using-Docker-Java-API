@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="come.pawsql.ia.plugin.IASettingState">
+    <option name="activateCode" value="6017-339C-C51F-89E7" />
+    <option name="dbHost" value="localhost" />
+    <option name="dbPort" value="5432" />
+    <option name="dbType" value="1" />
+    <option name="dedup" value="true" />
+    <option name="defaultDB" value="openfabric" />
+    <option name="passwd" value="78a72751f94d88d03730" />
+    <option name="queryType" value="1" />
+    <option name="schemaList" value="public" />
+    <option name="user" value="openfabric" />
+    <option name="userId" value="service@pawsql.com" />
+    <option name="validate" value="true" />
+  </component>
+</project>

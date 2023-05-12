@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="come.pawsql.plugin.SettingState">
+    <option name="activateCode" value="" />
+    <option name="dbHost" value="localhost" />
+    <option name="dbPort" value="5432" />
+    <option name="dbType" value="1" />
+    <option name="dedup" value="true" />
+    <option name="defaultDB" value="openfabric" />
+    <option name="passwd" value="78a72751f94d88d03730" />
+    <option name="schemaList" value="public" />
+    <option name="user" value="openfabric" />
+    <option name="userId" value="" />
+    <option name="validate" value="true" />
+  </component>
+</project>

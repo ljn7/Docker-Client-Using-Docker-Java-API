@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!-- ############################################################ -->
+    <!--   DBMS SPECIFIC SETUP   -->
+    <!-- ############################################################ -->
+    <property name="uuid_type" value="CHAR(36)" dbms="postgresql"/>
+    <property name="uuid_type" value="uniqueidentifier" dbms="mssql"/>
+    <property name="uuid_type" value="RAW(16)" dbms="oracle"/>
+    <property name="uuid_function" value="uuid_generate_v4()" dbms="postgresql"/>
+    <property name="uuid_function" value="NEWID()" dbms="mssql"/>
+    <property name="uuid_function" value="sys_guid()" dbms="oracle"/>
+
+    <changeSet id="EXTENSION" author="andrei">
+        <sql>
+            CREATE
+            EXTENSION IF NOT EXISTS "uuid-ossp";
+        </sql>
+    </changeSet>
+    <changeSet id="SEQUENCE" author="andrei">
+        <sql>
+            CREATE SEQUENCE IF NOT EXISTS hibernate_sequence START 1;
+        </sql>
+    </changeSet>
+
+    <!-- ############################################################ -->
+    <!--  Worker  -->
+    <!-- ############################################################ -->
+    <changeSet id="WO_01" author="andrei">
+        <createTable tableName="worker" remarks="Worker table">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="signature" type="text"/>
+
+            <column name="address" type="text"/>
+            <column name="price" type="decimal(10,2)"/>
+            <column name="specifications" type="text"/>
+
+            <column name="port" type="text"/>
+            <column name="protocol" type="text"/>
+            <column name="domain" type="text"/>
+
+            <column name="created_at" type="DATETIME"/>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="deleted_at" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
