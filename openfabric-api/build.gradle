@@ -28,7 +28,12 @@ dependencies {
     // https://mvnrepository.com/artifact/com.github.docker-java/docker-java
     implementation 'com.github.docker-java:docker-java:3.3.0'
     implementation 'com.github.docker-java:docker-java-transport-httpclient5:3.3.0'
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
+    // implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+    // implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
+
+
+    // implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
     //-------
     implementation 'com.yahoo.elide:elide-spring-boot-starter:4.8.0'
     implementation 'me.paulschwarz:spring-dotenv:2.5.4'
@@ -48,7 +53,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     // ------
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.5'
-
+    
     configurations {
         // get rid of hibernate-incompatible javassist
         all*.exclude group: 'javassist', module: 'javassist'
@@ -59,7 +64,7 @@ dependencies {
 group = 'ai.openfabric'
 version = '1.0.0-SNAPSHOT'
 description = 'openfabric-node'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 
 import com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformer
