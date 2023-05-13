@@ -12,7 +12,8 @@ plugins {
     id 'application'
     id 'idea'
     id 'org.springframework.boot' version '2.7.5'
-    id 'com.github.johnrengelman.shadow' version '6.0.0'
+    // id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id "com.github.johnrengelman.shadow" version "8.1.1"
 }
 
 repositories {
@@ -23,6 +24,11 @@ repositories {
 }
 
 dependencies {
+
+    // https://mvnrepository.com/artifact/com.github.docker-java/docker-java
+    implementation 'com.github.docker-java:docker-java:3.3.0'
+    implementation 'com.github.docker-java:docker-java-transport-httpclient5:3.3.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
     //-------
     implementation 'com.yahoo.elide:elide-spring-boot-starter:4.8.0'
     implementation 'me.paulschwarz:spring-dotenv:2.5.4'

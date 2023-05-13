@@ -37,15 +37,6 @@
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="name" type="varchar(255)"/>
-            <column name="signature" type="text"/>
-
-            <column name="address" type="text"/>
-            <column name="price" type="decimal(10,2)"/>
-            <column name="specifications" type="text"/>
-
-            <column name="port" type="text"/>
-            <column name="protocol" type="text"/>
-            <column name="domain" type="text"/>
 
             <column name="created_at" type="DATETIME"/>
             <column name="updated_at" type="DATETIME"/>
