@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.boot.registry.classloading.spi.ClassLoaderService.Work;
+// import org.hibernate.boot.registry.classloading.spi.ClassLoaderService.Work;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,18 +23,17 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@Entity()/* extends Datable */
+@Entity() /* extends Datable */
 @Table(name = "worker", schema = "public")
-public class Worker 
+public class Worker
         implements Serializable {
-    
+
     @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "of-uuid")
-    @GenericGenerator(name = "of-uuid", strategy =
-    "ai.openfabric.api.model.IDGenerator")
+    @GenericGenerator(name = "of-uuid", strategy = "ai.openfabric.api.model.IDGenerator")
     public String id;
-    
+
     @JsonProperty
     @Column(name = "containerid")
     public String containerID;
@@ -68,8 +67,8 @@ public class Worker
         this.name = name;
     }
 
-    public Worker () {
-        
+    public Worker() {
+
     }
 
     @Override
