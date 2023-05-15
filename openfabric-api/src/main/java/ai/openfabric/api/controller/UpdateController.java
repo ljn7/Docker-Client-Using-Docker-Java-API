@@ -7,7 +7,12 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
+import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.api.model.Container;
+
 import ai.openfabric.api.model.Worker;
+import ai.openfabric.api.model.WorkerStatistics;
+import ai.openfabric.api.repository.StatisticsRepository;
 import ai.openfabric.api.repository.WorkerRepository;
 
 @Component
@@ -35,22 +40,49 @@ public class UpdateController {
             }
 
         }
-        // get list from database and compare with updated entities,
-        // if not found in updated list then container record is removed
+
         List<Worker> dataBaseWorkersList = new ArrayList<>();
         Iterable<Worker> entityIterable = repository.findAll();
         entityIterable.forEach(dataBaseWorkersList::add);
 
         Set<String> givenEntityIds = entities.stream().map(Worker::getContainerID).collect(Collectors.toSet());
-        // Set<String> ss =
-        // dataBaseWorkersList.stream().map(Worker::getContainerID).filter(e ->
-        // true).collect(Collectors.toSet());
+
         List<Worker> entitiesToDelete = dataBaseWorkersList.stream()
                 .filter(entity -> !givenEntityIds.contains(entity.getContainerID()))
                 .collect(Collectors.toList());
         repository.deleteAll(entitiesToDelete);
 
         return res;
+    }
+
+    public Worker updateStatus(String containerId, DockerClient dockerClient, WorkerRepository workerRepository) {
+
+        List<Container> containerList = dockerClient.listContainersCmd().withShowAll(true).exec();
+        Worker worker = workerRepository.findByContainerID(containerId);
+        for (Container container : containerList) {
+
+            if (container.getId().equals(containerId)) {
+                worker.setStatus(container.getStatus());
+                return workerRepository.save(worker);
+            }
+        }
+        return null;
+    }
+
+    public WorkerStatistics updateWorkerStatistics(WorkerStatistics workerStatistics, StatisticsRepository repository) {
+
+        WorkerStatistics wStatistics = repository.findByContainerID(workerStatistics.getContainerID());
+        if (wStatistics == null) {
+            return repository.save(workerStatistics);
+        }
+        wStatistics.setCpuPercentage(workerStatistics.getCpuPercentage());
+        wStatistics.setMemLimit(workerStatistics.getMemLimit());
+        wStatistics.setMemPercentage(workerStatistics.getMemPercentage());
+        wStatistics.setMemUsage(workerStatistics.getMemUsage());
+        wStatistics.setNetIO(workerStatistics.getNetIO());
+        wStatistics.setPid(workerStatistics.getPid());
+
+        return repository.save(wStatistics);
     }
 
 }

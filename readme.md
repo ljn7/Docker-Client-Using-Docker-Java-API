@@ -9,12 +9,12 @@ it to manage **Docker** containers, also referred to as workers, as fallows:
 
 🔄 Integrate the 🐳 Docker Java library (https://github.com/docker-java/docker-java/blob/main/docs/getting_started.md) to enable connect and manage 👷‍♀️ workers.
 
-➕ Add the required fields and database migration for the 👷‍♂️ Worker entity to keep **all** the information associated on available at the container level (like 🔌 ports, 👨‍💼 name, 🟢 status, etc..)
+➕ Add the required fields and database migration for the 👷‍♂️ Worker entity to keep **all** the information associated on available at the container level (like 🔌 ports, 👨‍💼 name, 🟢 status, etc..) ✅
 
 🆕 Add required entities and tables to track the 👷‍♂️ Worker statistics.
 
 🆙 Update the 👷‍♂️ WorkerController to add actions for:
-* 📄 List workers (paginated)
+* 📄 List workers (paginated) ✅
 * ▶️ Start and ⏹️ Stop worker
 * 🔍 Get worker information
 * 📊 Get worker statistics

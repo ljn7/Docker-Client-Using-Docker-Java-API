@@ -21,7 +21,7 @@ import java.io.Serializable;
 @Setter
 @Entity()
 @Table(name = "statistics", schema = "public")
-public class Statistics implements Serializable {
+public class WorkerStatistics implements Serializable {
 
     @JsonIgnore
     @Id
@@ -56,13 +56,27 @@ public class Statistics implements Serializable {
     @JsonProperty
     String pid;
 
+    public WorkerStatistics(String containerID, String cpuPercentage, String memUsage, String memLimit,
+            String memPercentage, String netIO, String pid) {
+        this.containerID = containerID;
+        this.cpuPercentage = cpuPercentage;
+        this.memUsage = memUsage;
+        this.memLimit = memLimit;
+        this.memPercentage = memPercentage;
+        this.netIO = netIO;
+        this.pid = pid;
+    }
+
+    public WorkerStatistics() {
+
+    }
+
     @Override
     public String toString() {
-        return "Statistics [containerID=" + containerID + ", cpuPercentage=" + cpuPercentage + ", memUsage=" + memUsage
+        return "Worker Statistics [containerID=" + containerID + ", cpuPercentage=" + cpuPercentage + ", memUsage="
+                + memUsage
                 + ", memLimit=" + memLimit + ", memPercentage=" + memPercentage + ", netIO=" + netIO + ", pid=" + pid
                 + "]";
     }
-
-    
 
 }

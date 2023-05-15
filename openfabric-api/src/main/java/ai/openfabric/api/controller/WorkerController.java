@@ -1,11 +1,9 @@
 package ai.openfabric.api.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,16 +13,9 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import com.github.dockerjava.api.DockerClient;
-import com.github.dockerjava.api.command.CreateContainerCmd;
-import com.github.dockerjava.api.command.CreateContainerResponse;
+
 import com.github.dockerjava.api.model.Container;
-import com.github.dockerjava.api.model.ContainerConfig;
-import com.github.dockerjava.api.model.ContainerHostConfig;
-import com.github.dockerjava.api.model.HostConfig;
-import com.github.dockerjava.api.model.PortBinding;
-import com.github.dockerjava.api.model.Ports;
 
 import ai.openfabric.api.config.DockerConfig;
 import ai.openfabric.api.helper.WorkerControllerHelper;
@@ -48,14 +39,14 @@ public class WorkerController {
 
     // @PostMapping(path = "/hello")
     // public @ResponseBody String hello(@RequestBody String name) {
-    //     return "Hello!" + name;
+    // return "Hello!" + name;
     // }
-    
 
     @GetMapping("/workers")
-    public @ResponseBody ResponseEntity<Map<String, Object>> getWorkersList(@RequestParam(required = false) Integer page) {
-        
-        page = page==null ? 0: page;
+    public @ResponseBody ResponseEntity<Map<String, Object>> getWorkersList(
+            @RequestParam(required = false) Integer page) {
+
+        page = page == null ? 0 : page;
         try {
             List<Container> lists = dockerClient.listContainersCmd().withShowAll(true).exec();
 
@@ -69,7 +60,7 @@ public class WorkerController {
             List<Worker> contentList = pageWorkers.getContent();
             Map<String, Object> response = new HashMap<>();
             response.put("Workers", contentList);
-            response.put("currentPage", pageWorkers.getNumber() + ((page<=0)? 0: page-1));
+            response.put("currentPage", pageWorkers.getNumber() + ((page <= 0) ? 0 : page - 1));
             response.put("totalItems", pageWorkers.getTotalElements());
             response.put("totalPages", pageWorkers.getTotalPages());
 
@@ -82,45 +73,56 @@ public class WorkerController {
 
     }
 
-    // @GetMapping(value = "/create/")
-    // public @ResponseBody ResponseEntity<Map<String, Object>> createWorker(@RequestParam String image) {
-    //     String[] envs;
-    //     String imageName = "nginx:latest";
-    //     String containerName = "my-container";
-    //     int hostPort = 8080;
-    //     int containerPort = 80;
+    @PostMapping("/worker/start")
+    public ResponseEntity<Worker> startWorker(@RequestParam String containerId) {
 
-    //     // Create container configuration
-    //     ContainerConfig containerConfig = new ContainerConfig();
-    //     containerConfig.withImage(imageName);
-        
-    //     if(envs != null)
-    //     containerConfig.withEnv(envs);
-            
-    //     // Configure port bindings
-    //     PortBinding portBinding = new PortBinding("0.0.0.0", hostPort)
-    //     // PortBinding.of("0.0.0.0", String.valueOf(hostPort));
-    //     Ports portBindings = new Ports();
-    //     portBindings.bind(portBinding, Ports.Binding.bindPort(containerPort));
+        try {
+            List<Container> containerList = dockerClient.listContainersCmd().withShowAll(true).exec();
+            for (Container container : containerList) {
 
-    //     // Configure host configuration
-    //     HostConfig hostConfig = HostConfig.builder()
-    //             .portBindings(portBindings)
-    //             .build();
+                if (container.getId().equals(containerId)) {
+                    dockerClient.startContainerCmd(containerId).exec();
+                    return new ResponseEntity<>(dataUpdater.updateStatus(containerId, dockerClient, repository),
+                            HttpStatus.OK);
+                }
 
-    //     // Create the container
-    //     CreateContainerCmd containerCmd = dockerClient.createContainerCmd(image);
-        
-    //     if (containerName != null)
-    //         containerCmd = containerCmd.withName(containerName);
-    //     if (hostConfig != null)
-    //         containerCmd = containerCmd.withHostConfig(hostConfig);
+            }
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
-    //     ContainerRe containerResponse = containerCmd.exec();
-    //     // Get the ID of the created container
-    //     String containerId = containerResponse.getId();
-    //     System.out.println("Container created with ID: " + containerId);
-    // }
-    
-    
+    @PostMapping("/worker/stop")
+    public ResponseEntity<Worker> stopWorker(@RequestParam String containerId) {
+
+        try {
+
+            List<Container> containerList = dockerClient.listContainersCmd().withShowAll(true).exec();
+            for (Container container : containerList) {
+
+                if (container.getId().equals(containerId)) {
+                    dockerClient.stopContainerCmd(containerId).exec();
+                    return new ResponseEntity<>(dataUpdater.updateStatus(containerId, dockerClient, repository),
+                            HttpStatus.OK);
+                }
+
+            }
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/worker")
+    public ResponseEntity<Worker> getWorker(@RequestParam String containerId) {
+
+        try {
+            return new ResponseEntity<>(repository.findByContainerID(containerId), HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<Worker>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }

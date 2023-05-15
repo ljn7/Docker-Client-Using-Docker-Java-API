@@ -47,61 +47,18 @@ public class WorkerControllerHelper {
         return res;
     }
 }
-    // public Worker createContainer () {
 
-    // }
-//     public Statistics getWorkerStatistics(DockerClient dockerClient, String containerId) {
-        
-//         ResultCallback<Statistics> callback = new ;
-
-//         dockerClient.statsCmd(containerId).exec(callback);
-
-//         // Wait for the statistics
-//         While(callback.stats == null) 
-//         {
-
-//         }
-//         return callback.stats;
-//     }
-// }
-// class ResultCallBackImpl<T> implements ResultCallback<T>() {
-//     @Override
-//     public void onStart(Closeable closeable) {
-//         // Callback start implementation (optional)
-//     }
-
-//     @Override
-//     public void onNext(T stats) {
-//         // Handle the received container statistics
-  
-//     }
-
-//     @Override
-//     public void onError(Throwable throwable) {
-//         // Handle the error
-//         throwable.printStackTrace();
-//     }
-
-//     @Override
-//     public void onComplete() {
-//         // Callback completion implementation (optional)
-//     }
-
-//     @Override
-//     public void close() throws IOException {
-//         // Close the callback resources (optional)
-//     }
-// };
 class ResultCallbackImpl<T> implements ResultCallback<T> {
     public T stats;
+
     @Override
     public void onStart(Closeable closeable) {
-        // Callback start implementation (optional)
+
     }
 
     @Override
     public void onNext(T stats) {
-        // Handle the received container statistics
+
         if (this.stats == null) {
             this.stats = stats;
         }
@@ -109,17 +66,17 @@ class ResultCallbackImpl<T> implements ResultCallback<T> {
 
     @Override
     public void onError(Throwable throwable) {
-        // Handle the error
+
         throwable.printStackTrace();
     }
 
     @Override
     public void onComplete() {
-        // Callback completion implementation (optional)
+
     }
 
     @Override
     public void close() throws IOException {
-        // Close the callback resources (optional)
+
     }
 }

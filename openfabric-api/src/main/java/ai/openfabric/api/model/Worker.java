@@ -55,13 +55,11 @@ public class Worker implements Serializable {
     @JsonProperty
     public String name;
 
-
     @Override
     public String toString() {
         return "Worker [containerID=" + containerID + ", image=" + image + ", command=" + command + ", created="
                 + created + ", status=" + status + ", ports=" + ports + ", name=" + name + "]";
     }
-
 
     public Worker(String containerID, String image, String command, String created, String status, String ports,
             String name) {
@@ -74,8 +72,8 @@ public class Worker implements Serializable {
         this.name = name;
     }
 
+    public Worker() {
 
-    
+    }
 
-    
 }
