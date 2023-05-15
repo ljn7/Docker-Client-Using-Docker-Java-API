@@ -17,7 +17,7 @@ import com.github.dockerjava.api.model.Statistics;
 
 import ai.openfabric.api.controller.UpdateController;
 import ai.openfabric.api.model.WorkerStatistics;
-import ai.openfabric.api.repository.StatisticsRepository;
+import ai.openfabric.api.repository.WorkerStatisticsRepository;
 
 class ResultCallbackCustomImpl<T> implements ResultCallback<T> {
     public Statistics stats;
@@ -68,7 +68,7 @@ public class WorkerStatisticsControllerHelper {
     // }
 
     public WorkerStatistics getWorkerStats(String containerId, DockerClient dockerClient,
-            StatisticsRepository statisticsRepository, UpdateController updateController) {
+            WorkerStatisticsRepository statisticsRepository, UpdateController updateController) {
 
         StatsCmd stats = dockerClient.statsCmd(containerId);
 

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-<databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-
-    <!-- ############################################################ -->
-    <!--   DBMS SPECIFIC SETUP   -->
-    <!-- ############################################################ -->
     <property name="uuid_type" value="CHAR(36)" dbms="postgresql"/>
     <property name="uuid_type" value="uniqueidentifier" dbms="mssql"/>
     <property name="uuid_type" value="RAW(16)" dbms="oracle"/>
@@ -22,27 +17,44 @@
             EXTENSION IF NOT EXISTS "uuid-ossp";
         </sql>
     </changeSet>
+    
     <changeSet id="SEQUENCE" author="andrei">
         <sql>
             CREATE SEQUENCE IF NOT EXISTS hibernate_sequence START 1;
         </sql>
     </changeSet>
 
-    <!-- ############################################################ -->
-    <!--  Worker  -->
-    <!-- ############################################################ -->
-    <changeSet id="WO_01" author="andrei">
+    <changeSet id="WO_01" author="ljn7">
         <createTable tableName="worker" remarks="Worker table">
             <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
+            <column name="containerid" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="image" type="varchar(255)"/>
+            <column name="command" type="varchar(255)"/>
+            <column name="created" type="varchar(255)"/>
+            <column name="status" type="varchar(255)"/>
+            <column name="ports" type="varchar(255)"/>
             <column name="name" type="varchar(255)"/>
-
-            <column name="created_at" type="DATETIME"/>
-            <column name="updated_at" type="DATETIME"/>
-            <column name="deleted_at" type="DATETIME"/>
         </createTable>
     </changeSet>
 
-
+    <changeSet id="WO_STAT_01" author="ljn7">
+        <createTable tableName="statistics" remarks="Worker Statistics table">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="containerid" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="cpupercentage" type="varchar(255)"/>
+            <column name="memusage" type="varchar(255)"/>
+            <column name="memlimit" type="varchar(255)"/>
+            <column name="mempercentage" type="varchar(255)"/>
+            <column name="netio" type="varchar(255)"/>
+            <column name="pid" type="varchar(225)"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

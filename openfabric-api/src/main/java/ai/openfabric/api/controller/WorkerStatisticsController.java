@@ -16,14 +16,14 @@ import com.github.dockerjava.api.model.Container;
 import ai.openfabric.api.config.DockerConfig;
 import ai.openfabric.api.helper.WorkerStatisticsControllerHelper;
 import ai.openfabric.api.model.WorkerStatistics;
-import ai.openfabric.api.repository.StatisticsRepository;
+import ai.openfabric.api.repository.WorkerStatisticsRepository;
 
 @RestController
 @RequestMapping("${node.api.path}")
 public class WorkerStatisticsController {
 
     @Autowired
-    private StatisticsRepository repository;
+    private WorkerStatisticsRepository repository;
     @Autowired
     private WorkerStatisticsControllerHelper workerStatisticsControllerHelper;
     @Autowired

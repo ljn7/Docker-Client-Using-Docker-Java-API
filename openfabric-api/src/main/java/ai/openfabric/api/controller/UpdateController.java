@@ -12,7 +12,7 @@ import com.github.dockerjava.api.model.Container;
 
 import ai.openfabric.api.model.Worker;
 import ai.openfabric.api.model.WorkerStatistics;
-import ai.openfabric.api.repository.StatisticsRepository;
+import ai.openfabric.api.repository.WorkerStatisticsRepository;
 import ai.openfabric.api.repository.WorkerRepository;
 
 @Component
@@ -69,7 +69,7 @@ public class UpdateController {
         return null;
     }
 
-    public WorkerStatistics updateWorkerStatistics(WorkerStatistics workerStatistics, StatisticsRepository repository) {
+    public WorkerStatistics updateWorkerStatistics(WorkerStatistics workerStatistics, WorkerStatisticsRepository repository) {
 
         WorkerStatistics wStatistics = repository.findByContainerID(workerStatistics.getContainerID());
         if (wStatistics == null) {

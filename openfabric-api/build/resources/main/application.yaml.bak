@@ -1,0 +1,13 @@
+# ==============================================
+#
+#  Before starting the application
+#  rename the application-local.yaml.template
+#  to application-local.yaml
+#  and add the specific local configurations
+#
+# ==============================================
+spring:
+  profiles:
+    include: base,local
+
+

@@ -60,7 +60,7 @@ public class WorkerController {
             List<Worker> contentList = pageWorkers.getContent();
             Map<String, Object> response = new HashMap<>();
             response.put("Workers", contentList);
-            response.put("currentPage", pageWorkers.getNumber() + ((page <= 0) ? 0 : page - 1));
+            response.put("currentPage", pageWorkers.getNumber());
             response.put("totalItems", pageWorkers.getTotalElements());
             response.put("totalPages", pageWorkers.getTotalPages());
 
