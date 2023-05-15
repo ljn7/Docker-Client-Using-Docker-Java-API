@@ -17,13 +17,19 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.api.command.CreateContainerCmd;
+import com.github.dockerjava.api.command.CreateContainerResponse;
 import com.github.dockerjava.api.model.Container;
+import com.github.dockerjava.api.model.ContainerConfig;
+import com.github.dockerjava.api.model.ContainerHostConfig;
+import com.github.dockerjava.api.model.HostConfig;
+import com.github.dockerjava.api.model.PortBinding;
+import com.github.dockerjava.api.model.Ports;
 
 import ai.openfabric.api.config.DockerConfig;
-import ai.openfabric.api.controller.methods.Get;
+import ai.openfabric.api.helper.WorkerControllerHelper;
 import ai.openfabric.api.model.Worker;
 import ai.openfabric.api.repository.WorkerRepository;
-import io.reactivex.annotations.NonNull;
 
 @RestController
 @RequestMapping("${node.api.path}/worker")
@@ -32,9 +38,9 @@ public class WorkerController {
     @Autowired
     private WorkerRepository repository;
     @Autowired
-    private DataUpdater dataUpdater;
+    private UpdateController dataUpdater;
     @Autowired
-    private Get getMethods;
+    private WorkerControllerHelper workerControllerHelper;
 
     private DockerClient dockerClient = DockerConfig.getInstance();
     // @Autowired
@@ -53,7 +59,7 @@ public class WorkerController {
         try {
             List<Container> lists = dockerClient.listContainersCmd().withShowAll(true).exec();
 
-            List<Worker> res = getMethods.getWorkersWithPagination(lists);
+            List<Worker> res = workerControllerHelper.getWorkersWithPagination(lists);
 
             dataUpdater.updateDatabase(res, repository);
 
@@ -63,7 +69,7 @@ public class WorkerController {
             List<Worker> contentList = pageWorkers.getContent();
             Map<String, Object> response = new HashMap<>();
             response.put("Workers", contentList);
-            response.put("currentPage", pageWorkers.getNumber()+1);
+            response.put("currentPage", pageWorkers.getNumber() + ((page<=0)? 0: page-1));
             response.put("totalItems", pageWorkers.getTotalElements());
             response.put("totalPages", pageWorkers.getTotalPages());
 
@@ -76,12 +82,45 @@ public class WorkerController {
 
     }
 
-    @GetMapping(value = "/create/")
-    public @ResponseBody ResponseEntity<Map<String, Object>> createWorker(@RequestParam String image) {
-        
-        if (image != null)
-            dockerClient.createContainerCmd(image);
-        return null;
-    }
+    // @GetMapping(value = "/create/")
+    // public @ResponseBody ResponseEntity<Map<String, Object>> createWorker(@RequestParam String image) {
+    //     String[] envs;
+    //     String imageName = "nginx:latest";
+    //     String containerName = "my-container";
+    //     int hostPort = 8080;
+    //     int containerPort = 80;
 
+    //     // Create container configuration
+    //     ContainerConfig containerConfig = new ContainerConfig();
+    //     containerConfig.withImage(imageName);
+        
+    //     if(envs != null)
+    //     containerConfig.withEnv(envs);
+            
+    //     // Configure port bindings
+    //     PortBinding portBinding = new PortBinding("0.0.0.0", hostPort)
+    //     // PortBinding.of("0.0.0.0", String.valueOf(hostPort));
+    //     Ports portBindings = new Ports();
+    //     portBindings.bind(portBinding, Ports.Binding.bindPort(containerPort));
+
+    //     // Configure host configuration
+    //     HostConfig hostConfig = HostConfig.builder()
+    //             .portBindings(portBindings)
+    //             .build();
+
+    //     // Create the container
+    //     CreateContainerCmd containerCmd = dockerClient.createContainerCmd(image);
+        
+    //     if (containerName != null)
+    //         containerCmd = containerCmd.withName(containerName);
+    //     if (hostConfig != null)
+    //         containerCmd = containerCmd.withHostConfig(hostConfig);
+
+    //     ContainerRe containerResponse = containerCmd.exec();
+    //     // Get the ID of the created container
+    //     String containerId = containerResponse.getId();
+    //     System.out.println("Container created with ID: " + containerId);
+    // }
+    
+    
 }

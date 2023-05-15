@@ -41,4 +41,20 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="WO_STAT_01" author="ljn7">
+        <createTable tableName="statistics" remarks="Worker Statistics table">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="containerid" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="cpupercentage" type="varchar(255)"/>
+            <column name="memusage" type="varchar(255)"/>
+            <column name="memlimit" type="varchar(255)"/>
+            <column name="mempercentage" type="varchar(255)"/>
+            <column name="netio" type="varchar(255)"/>
+            <column name="pid" type="varchar(225)"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

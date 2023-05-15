@@ -25,8 +25,7 @@ import java.io.Serializable;
 @Setter
 @Entity() /* extends Datable */
 @Table(name = "worker", schema = "public")
-public class Worker
-        implements Serializable {
+public class Worker implements Serializable {
 
     @JsonIgnore
     @Id
@@ -56,6 +55,14 @@ public class Worker
     @JsonProperty
     public String name;
 
+
+    @Override
+    public String toString() {
+        return "Worker [containerID=" + containerID + ", image=" + image + ", command=" + command + ", created="
+                + created + ", status=" + status + ", ports=" + ports + ", name=" + name + "]";
+    }
+
+
     public Worker(String containerID, String image, String command, String created, String status, String ports,
             String name) {
         this.containerID = containerID;
@@ -67,14 +74,8 @@ public class Worker
         this.name = name;
     }
 
-    public Worker() {
 
-    }
+    
 
-    @Override
-    public String toString() {
-        return "Worker [containerID=" + containerID + ", image=" + image + ", command=" + command + ", created="
-                + created + ", status=" + status + ", ports=" + ports + ", name=" + name + "]";
-    }
-
+    
 }

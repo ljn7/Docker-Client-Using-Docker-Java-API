@@ -11,7 +11,7 @@ import ai.openfabric.api.model.Worker;
 import ai.openfabric.api.repository.WorkerRepository;
 
 @Component
-public class DataUpdater {
+public class UpdateController {
 
     public List<Worker> updateDatabase(List<Worker> entities,
             WorkerRepository repository) {
