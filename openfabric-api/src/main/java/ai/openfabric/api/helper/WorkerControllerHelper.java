@@ -48,35 +48,35 @@ public class WorkerControllerHelper {
     }
 }
 
-class ResultCallbackImpl<T> implements ResultCallback<T> {
-    public T stats;
+// class ResultCallbackImpl<T> implements ResultCallback<T> {
+//     public T stats;
 
-    @Override
-    public void onStart(Closeable closeable) {
+//     @Override
+//     public void onStart(Closeable closeable) {
 
-    }
+//     }
 
-    @Override
-    public void onNext(T stats) {
+//     @Override
+//     public void onNext(T stats) {
 
-        if (this.stats == null) {
-            this.stats = stats;
-        }
-    }
+//         if (this.stats == null) {
+//             this.stats = stats;
+//         }
+//     }
 
-    @Override
-    public void onError(Throwable throwable) {
+//     @Override
+//     public void onError(Throwable throwable) {
 
-        throwable.printStackTrace();
-    }
+//         throwable.printStackTrace();
+//     }
 
-    @Override
-    public void onComplete() {
+//     @Override
+//     public void onComplete() {
 
-    }
+//     }
 
-    @Override
-    public void close() throws IOException {
+//     @Override
+//     public void close() throws IOException {
 
-    }
-}
+//     }
+// }

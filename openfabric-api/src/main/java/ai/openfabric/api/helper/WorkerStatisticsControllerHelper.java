@@ -112,7 +112,8 @@ public class WorkerStatisticsControllerHelper {
             pid = String.valueOf(getCurrent);
 
         return updateController.updateWorkerStatistics(
-                new WorkerStatistics(containerId, cpuPercentage, memUsage, memLimit, memPercentage, netIO, pid), statisticsRepository);
+                new WorkerStatistics(containerId, cpuPercentage, memUsage, memLimit, memPercentage, netIO, pid),
+                statisticsRepository);
 
     }
 
