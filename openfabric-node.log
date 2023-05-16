@@ -969,3 +969,81 @@ This generated password is for development use only. Your security configuration
 13-05-2023 03:15:20.097 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
 13-05-2023 03:15:20.099 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
 13-05-2023 03:15:20.102 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+16-05-2023 05:31:36.090 [main] INFO  m.p.s.DotenvPropertySource.addToEnvironment - Initializing Dotenv with DotenvConfig{directory=null, filename=null, ignoreIfMalformed=false, ignoreIfMissing=true, systemProperties=false, prefix=null}
+16-05-2023 05:31:36.111 [main] INFO  ai.openfabric.api.Application.logStarting - Starting Application using Java 17.0.5 on DESKTOP-1GRCG39 with PID 11756 (C:\Users\johnn\Downloads\openfabric-test\openfabric-api\build\libs\openfabric-api-1.0.0-SNAPSHOT.jar started by johnn in C:\Users\johnn\Downloads\openfabric-test)
+16-05-2023 05:31:36.112 [main] INFO  ai.openfabric.api.Application.logStartupProfileInfo - The following 2 profiles are active: "base", "local"
+16-05-2023 05:31:37.127 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16-05-2023 05:31:37.203 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
+16-05-2023 05:31:38.332 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+16-05-2023 05:31:38.334 [main] INFO  o.a.c.core.AprLifecycleListener.log - Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+16-05-2023 05:31:38.335 [main] INFO  o.a.c.core.AprLifecycleListener.log - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+16-05-2023 05:31:38.336 [main] INFO  o.a.c.core.AprLifecycleListener.log - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+16-05-2023 05:31:38.370 [main] INFO  o.a.c.core.AprLifecycleListener.log - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+16-05-2023 05:31:38.390 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+16-05-2023 05:31:38.392 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+16-05-2023 05:31:38.393 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.68]
+16-05-2023 05:31:38.557 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+16-05-2023 05:31:38.558 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2379 ms
+16-05-2023 05:31:38.810 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+16-05-2023 05:31:39.118 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+16-05-2023 05:31:39.374 [main] INFO  liquibase.database.log - Set default schema name to public
+16-05-2023 05:31:39.521 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+16-05-2023 05:31:40.040 [main] INFO  liquibase.changelog.log - Reading from public.databasechangelog
+16-05-2023 05:31:40.150 [main] INFO  liquibase.servicelocator.log - Cannot load service: liquibase.hub.HubService: Provider liquibase.hub.core.StandardHubService could not be instantiated
+16-05-2023 05:31:40.167 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+16-05-2023 05:31:40.359 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+16-05-2023 05:31:40.449 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.6.12.Final
+16-05-2023 05:31:40.748 [main] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16-05-2023 05:31:40.892 [main] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+16-05-2023 05:31:41.524 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16-05-2023 05:31:41.533 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16-05-2023 05:31:41.570 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16-05-2023 05:31:45.477 [main] INFO  com.yahoo.elide.Elide.registerCustomSerde - Registering serde for type : class java.time.Instant
+16-05-2023 05:31:45.481 [main] INFO  com.yahoo.elide.Elide.registerCustomSerde - Registering serde for type : class java.time.OffsetDateTime
+16-05-2023 05:31:45.664 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration.getOrDeducePassword - 
+
+Using generated security password: 8eef6996-173c-49c7-a5ac-fbf4cf93c2bc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+16-05-2023 05:31:45.878 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c8f6c66, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@552cede7, org.springframework.security.web.context.SecurityContextPersistenceFilter@12219f6a, org.springframework.security.web.header.HeaderWriterFilter@12d2ddde, org.springframework.web.filter.CorsFilter@6b5966e1, org.springframework.security.web.authentication.logout.LogoutFilter@5f0a2638, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f0b93b4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@523a7801, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b7f06c7, org.springframework.security.web.session.SessionManagementFilter@131a7516, org.springframework.security.web.access.ExceptionTranslationFilter@64b0d1fa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4a9a878]
+16-05-2023 05:31:46.196 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration.checkTemplateLocationExists - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+16-05-2023 05:31:46.268 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+16-05-2023 05:31:46.308 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+16-05-2023 05:31:46.577 [main] INFO  ai.openfabric.api.Application.logStarted - Started Application in 10.928 seconds (JVM running for 11.77)
+16-05-2023 05:31:52.739 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16-05-2023 05:31:52.740 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+16-05-2023 05:31:52.741 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+16-05-2023 05:32:07.203 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_
+16-05-2023 05:32:07.254 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.259 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.261 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.263 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.265 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.267 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.270 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.272 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - delete from public.worker where id=?
+16-05-2023 05:32:07.292 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.304 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.311 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.314 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.318 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.322 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.327 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.329 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.333 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.337 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.342 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.345 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.349 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.352 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.357 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ where worker0_.containerid=?
+16-05-2023 05:32:07.361 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - insert into public.worker (command, containerid, created, image, name, ports, status, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:07.377 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_
+16-05-2023 05:32:07.382 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select worker0_.id as id1_1_, worker0_.command as command2_1_, worker0_.containerid as containe3_1_, worker0_.created as created4_1_, worker0_.image as image5_1_, worker0_.name as name6_1_, worker0_.ports as ports7_1_, worker0_.status as status8_1_ from public.worker worker0_ limit ?
+16-05-2023 05:32:07.391 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select count(worker0_.id) as col_0_0_ from public.worker worker0_
+16-05-2023 05:32:23.136 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select workerstat0_.id as id1_0_, workerstat0_.containerid as containe2_0_, workerstat0_.cpupercentage as cpuperce3_0_, workerstat0_.memlimit as memlimit4_0_, workerstat0_.mempercentage as memperce5_0_, workerstat0_.memusage as memusage6_0_, workerstat0_.netio as netio7_0_, workerstat0_.pid as pid8_0_ from public.statistics workerstat0_ where workerstat0_.containerid=?
+16-05-2023 05:32:23.145 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - insert into public.statistics (containerid, cpupercentage, memlimit, mempercentage, memusage, netio, pid, id) values (?, ?, ?, ?, ?, ?, ?, ?)
+16-05-2023 05:32:43.028 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+16-05-2023 05:32:43.029 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+16-05-2023 05:32:43.035 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
