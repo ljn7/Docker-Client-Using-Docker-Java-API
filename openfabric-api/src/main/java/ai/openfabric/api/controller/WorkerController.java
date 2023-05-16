@@ -34,6 +34,7 @@ public class WorkerController {
     private WorkerControllerHelper workerControllerHelper;
 
     private DockerClient dockerClient = DockerConfig.getInstance();
+    private static int WORKERS_SHOWN_PER_PAGE = 2;
     // @Autowired
     // private WorkerRepository repository;
 
@@ -54,7 +55,7 @@ public class WorkerController {
 
             dataUpdater.updateDatabase(res, repository);
 
-            Pageable paging = PageRequest.of(page, 2);
+            Pageable paging = PageRequest.of(page, WORKERS_SHOWN_PER_PAGE);
             Page<Worker> pageWorkers;
             pageWorkers = repository.findAll(paging);
             List<Worker> contentList = pageWorkers.getContent();
