@@ -5,7 +5,6 @@
 To run the application from compiled jar from root folder follow these steps:
 
 
-
 ## .env file
 Place the .env file on .\openfabric-api\build\libs\ with Database Address, port, username and password<br>
 
@@ -15,3 +14,9 @@ Place the .env file on .\openfabric-api\build\libs\ with Database Address, port,
 
 ## API entry point 
 http://localhost:8080/swagger-ui/
+
+## Building Fat or Shadow Jar File
+<b>On root folder run following command and check <i>.\openfabric-api\build\libs\<i/> for output</b><br><br>
+<i>gradle shadowJar</i> <b>(with Gradle)</b><br>
+<i>./gradlew shadowJar</i> <b>(with Gradle Wrapper on Linux)<br> 
+<i>.\gradle shadowJar</i> <b>(with Gradle Wrapper on Windows(Powershell))</b><br>
