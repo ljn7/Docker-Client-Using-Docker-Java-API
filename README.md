@@ -19,4 +19,4 @@ http://localhost:8080/swagger-ui/
 <b>On root folder run following command and check .\openfabric-api\build\libs\ for output</b><br><br>
 <i>gradle shadowJar</i> <b>(with Gradle)</b><br>
 <i>./gradlew shadowJar</i> <b>(with Gradle Wrapper on Linux)<br> 
-<i>.\gradle shadowJar</i> <b>(with Gradle Wrapper on Windows(Powershell))</b><br>
+<i>.\gradlew shadowJar</i> <b>(with Gradle Wrapper on Windows(Powershell))</b><br>
