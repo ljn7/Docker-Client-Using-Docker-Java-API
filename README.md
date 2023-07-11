@@ -1,5 +1,5 @@
 
-# Docker Client Using Docker-Java API
+# Docker Client Using Docker-Java API, Spring Boot, Hibernate, Lombok & Swagger UI.
 # Openfabric-test 
 
 To run the application from compiled jar from root folder follow these steps:
